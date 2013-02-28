@@ -12,7 +12,17 @@ alias 'cd..'='cd ..'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias diff='colordiff'
-alias vi='vim'
+
+if [ "$DISPLAY" ]
+then
+    EDITOR=gvim
+    GIT_EDITOR=vim
+    alias vi=gvim
+else
+    EDITOR=vim
+    GIT_EDITOR=vim
+    alias vi=vim
+fi
 
 shopt -s cdspell
 shopt -s checkwinsize
@@ -38,29 +48,11 @@ export COLUMNS
 export PAGER=less
 export LESS="iMQRS"
 
-export EDITOR='vim'
-export GIT_EDITOR='vim'
-
-addToPath() {
-        dir=${1}
-
-        if [ ! -d "${dir}" ]; then
-                logDebug paths: does not exist ${dir}
-                return
-        fi
-
-        if [ "`doesPathContain ${dir} ${PATH}`" = "true" ]; then
-                logDebug paths: already present ${dir}
-                return
-        fi
-
-        logDebug paths: adding ${dir}
-
-        PATH=${PATH}:${dir}
-        export PATH
-}
-
-initVundle() {
+function init_vundle() 
+{
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     vim +BundleInstall +qall
 }
+export -f init_vundle
+
+source .bash_prompt
