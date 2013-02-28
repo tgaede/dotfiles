@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'davidhalter/jedi'
 Bundle 'scrooloose/syntastic'
+Bundle 'flazz/vim-colorschemes'
 
 syntax on
 filetype plugin on
@@ -32,4 +33,4 @@ set nowrap
 set backspace=2
 
 abbreviate teh the
-colorscheme elflord
+colorscheme wombat256
