@@ -56,3 +56,7 @@ function init_vundle()
 export -f init_vundle
 
 source .bash_prompt
+
+if [[ -f $HOME/.bashrc_local ]]; then
+    . $HOME/.bashrc_local
+fi
