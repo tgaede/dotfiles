@@ -1,0 +1,18 @@
+PATH=\
+/bin:\
+/sbin:\
+/usr/bin:\
+/usr/sbin:\
+/usr/local/bin:\
+/usr/local/sbin:\
+.;
+
+if [[ -d $HOME/bin ]]; then
+    PATH="${PATH}:$HOME/bin"
+fi
+
+if [[ -d /opt/bin ]]; then
+    PATH="${PATH}:/opt/bin"
+fi
+
+export PATH

@@ -1,5 +1,5 @@
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc   # --> Read /etc/bashrc, if present.
+    . /etc/bashrc   # --> Read /etc/bashrc, if present.
 fi
 
 alias l='ls --color=auto'
@@ -48,15 +48,18 @@ export COLUMNS
 export PAGER=less
 export LESS="iMQRS"
 
-function init_vundle() 
+function vundle_init() 
 {
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     vim +BundleInstall +qall
 }
-export -f init_vundle
+export -f vundle_init
 
-source .bash_prompt
+source .bashrc_prompt
+source .bashrc_path
+source .bashrc_goscript
 
 if [[ -f $HOME/.bashrc_local ]]; then
     . $HOME/.bashrc_local
 fi
+

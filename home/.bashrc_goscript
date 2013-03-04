@@ -1,0 +1,31 @@
+#my hack-y "go to certain directories quickly" script thingie
+
+function setgo
+{
+    local current_dir=`pwd`
+    export $1=${current_dir}
+    sed -i "s:export $1=.*:export $1=\"${current_dir}\":g" $HOME/.goscript
+    echo "$1=${current_dir}"
+}
+
+if [[ ! -f $HOME/.goscript ]]; then
+    echo "export GO1=\"\$HOME\"" > $HOME/.goscript
+    echo "export GO2=\"\$HOME\"" >> $HOME/.goscript
+    echo "export GO3=\"\$HOME\"" >> $HOME/.goscript
+    echo "export GO4=\"\$HOME\"" >> $HOME/.goscript
+    echo "export GO5=\"\$HOME\"" >> $HOME/.goscript
+fi
+source $HOME/.goscript
+
+alias g1='cd ${GO1}'
+alias s1='setgo GO1'
+alias g2='cd ${GO2}'
+alias s2='setgo GO2'
+alias g3='cd ${GO3}'
+alias s3='setgo GO3'
+alias g4='cd ${GO4}'
+alias s4='setgo GO4'
+alias g5='cd ${GO5}'
+alias s5='setgo GO5'
+alias g='echo GO1=${GO1}; echo GO2=${GO2}; echo GO3=${GO3}; echo GO4=${GO4}; echo GO5=${GO5}'
+
