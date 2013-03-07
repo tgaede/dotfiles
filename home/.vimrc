@@ -31,6 +31,8 @@ set noerrorbells
 set laststatus=2
 set nowrap
 set backspace=2
+set pastetoggle=<F2>
 
+set background=dark
 abbreviate teh the
-colorscheme wombat256
+colorscheme solarized
