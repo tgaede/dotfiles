@@ -1,38 +1,50 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+filetype plugin indent on
 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'davidhalter/jedi'
-Bundle 'scrooloose/syntastic'
-Bundle 'flazz/vim-colorschemes'
+" tabs
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab " expand tabs to spaces
+" set autoindent " copies indentation from previous line. may not be needed.
+" set smartindent " interferes with filetype indentation
 
-syntax on
-filetype plugin on
-filetype indent on
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set smarttab
-set number
-set autoindent
-set smartindent
-set showmatch
-set mat=5
-set nohlsearch
-set history=1000
-set novisualbell
-set noerrorbells
-set laststatus=2
+" ui
+set number " show line numbers
 set nowrap
-set backspace=2
-set pastetoggle=<F2>
+set showmatch " show matching {}
+set mat=2  " number of tenths of a second to blink when matching brackets
 
-set background=dark
+" search
+set showmatch
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+
+" no annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" other
+set history=1000
+set laststatus=2 " always show the status line
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set backspace=eol,start,indent
 abbreviate teh the
-colorscheme solarized
+
+" colors
+syntax on
+set term=xterm-256color
+set t_Co=256
+set background=dark
+colorscheme PaperColor
+
+" backup - disable. use git.
+set nobackup
+set nowb
+set noswapfile
+
